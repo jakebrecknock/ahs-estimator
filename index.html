@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handyman Estimate Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        #sidebar {
+            width: 100%;
+            background-color: #f0f0f0;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        #sidebar h2 {
+            display: none;
+        }
+        .category-btn {
+            display: inline-block;
+            min-width: 120px;
+            padding: 10px;
+            margin: 0 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        #main {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .project-option {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .material-option {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="number"] {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #calculate-btn {
+            padding: 12px 24px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            width: 100%;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.3rem;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        .material-label {
+            flex: 1;
+            min-width: 200px;
+        }
+        .select-project {
+            padding: 8px 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            body {
+                flex-direction: row;
+            }
+            #sidebar {
+                width: 220px;
+                height: 100vh;
+                flex-direction: column;
+                overflow-y: auto;
+                white-space: normal;
+            }
+            #sidebar h2 {
+                display: block;
+                white-space: normal;
+            }
+            .category-btn {
+                display: block;
+                width: 100%;
+                margin: 0 0 10px 0;
+                white-space: normal;
+            }
+            #calculate-btn {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Categories</h2>
+        <button class="category-btn" data-category="bathroom">Bathroom</button>
+        <button class="category-btn" data-category="kitchen">Kitchen</button>
+        <button class="category-btn" data-category="bedroom">Bedroom</button>
+        <button class="category-btn" data-category="flooring">Flooring</button>
+        <button class="category-btn" data-category="garage">Garage</button>
+        <button class="category-btn" data-category="concrete">Concrete</button>
+        <button class="category-btn" data-category="basement">Basement</button>
+        <button class="category-btn" data-category="glass">Glass</button>
+        <button class="category-btn" data-category="decking">Decking</button>
+        <button class="category-btn" data-category="misc">Misc. Repairs</button>
+    </div>
+
+    <div id="main">
+        <h1 id="category-title">Select a Category</h1>
+        <div id="project-selection"></div>
+        <div id="material-selection"></div>
+        <button id="calculate-btn" style="display: none;">Calculate Estimate</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
