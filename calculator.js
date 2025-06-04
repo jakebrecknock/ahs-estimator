@@ -15,7 +15,7 @@ const pricingData = {
             "Single vanity": { price: 300, unit: "each" },
             "Double vanity": { price: 2000, unit: "each" },
             "Faucet": { price: 100, unit: "each" },
-            "Can lighting": { price: 100, unit: "each" },
+            "Can lighting": { price: 100, unit: "4 pack" },
             "Heated floor": { price: 9.5, unit: "sqft" },
             "Supply lines": { price: 7, unit: "ft" },
             "GFCI outlets": { price: 75, unit: "each" },
@@ -51,7 +51,7 @@ const pricingData = {
             "Farmhouse Sink": { price: 600, unit: "each" },
             "Kitchen Faucet": { price: 180, unit: "each" },
             "Pendant Lights": { price: 120, unit: "each" },
-            "Recessed/Can Lights": { price: 100, unit: "each" },
+            "Recessed/Can Lights": { price: 100, unit: "4 pack" },
             "Under Cabinet Lighting": { price: 35, unit: "ft" },
             "GFCI Outlets": { price: 75, unit: "each" },
             "Switches/Dimmers": { price: 60, unit: "each" }
