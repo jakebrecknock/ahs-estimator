@@ -361,4 +361,26 @@ function calculateEstimate() {
                 `<li>${name} (${data.quantity} ${data.unit} @ $${data.price}/${data.unit}): $${data.total.toLocaleString()}</li>`).join('')}
         </ul>
     `;
+
+    async function saveQuoteToFirebase() {
+  try {
+    const quoteData = {
+      project: currentProject,
+      laborCost: laborCost,
+      materials: selectedMaterials,
+      total: totalCost,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    };
+
+    await db.collection("quotes").add(quoteData);
+    console.log("Quote saved to Firestore!");
+    
+    // Optional: Show user confirmation
+    alert("Estimate saved to database!");
+  } catch (error) {
+    console.error("Error saving quote:", error);
+    alert("Failed to save estimate. See console for details.");
+  }
+}
+saveQuoteToFirebase();
 }
